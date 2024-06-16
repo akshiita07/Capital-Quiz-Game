@@ -1,0 +1,119 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-image: url('/bg.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    font-family: Arial, sans-serif;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    max-width: 40%;
+    height: 40vh;
+    margin: 15% auto;
+    padding: 20px;
+    align-items: center;
+    border-radius: 10px;
+    box-shadow: 0 0 15px 2px black;
+    background-color: white;
+}
+
+h1 {
+    text-align: center;
+}
+
+h4 {
+    margin: 0;
+}
+
+form {
+    width: 100%;
+    text-align: center;
+}
+
+input {
+    text-align: center;
+    width: 55%;
+    margin: 10px auto;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+
+}
+
+.totalScore {
+    width: 100%;
+}
+
+.countryName {}
+
+.submitBtn {
+    font-weight: 800;
+    letter-spacing: 1px;
+    font-size: 1rem;
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #ffca00;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.submitBtn:hover {
+    background-color: #ffd500;
+    color: black;
+}
+
+.restartBtn{
+    font-weight: 800;
+    letter-spacing: 1px;
+    font-size: 1rem;
+    display: block;
+    width: 100%;
+    padding: 10px;
+    background-color: #ffca00;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.restartBtn:hover {
+    background-color: #ffd500;
+    color: black;
+}
+
+.tick {
+    color: transparent;
+    animation: tick 1s ease-in-out;
+}
+
+@keyframes tick {
+    0% {
+        color: transparent;
+    }
+
+    100% {
+        color: green;
+    }
+}
+
+.cross {
+    color: transparent;
+    animation: cross 1s ease-in-out;
+}
+
+@keyframes cross {
+    0% {
+        color: transparent;
+    }
+
+    100% {
+        color: red;
+    }
+}

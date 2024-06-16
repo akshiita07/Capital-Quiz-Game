@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>World Quiz</title>
+
+    <!-- link css from public folder -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="totalScore">
+            <h4>Total Score:
+                <% if(locals.score){ %>
+                    <%= score %>
+                <% }else{ %>
+                    0
+                <% } %>
+            </h4>
+        </div>
+
+        <div class="countryName">
+            <h1>
+                <%= countryName %>
+            </h1>
+        </div>
+
+        <form action="/submit" method="post">
+            <input type="text" name="answer" id="answer" placeholder="Enter the capital"  autofocus autocomplete="off">
+            
+            <button type="submit" class="submitBtn">Submit
+
+            <!-- if correct capital enetered: increase total score by 1 and show checkmark next to button -->
+            <% if(locals.correctAns){ %>
+                <span class="tick">✔</span>
+            <% }else if(locals.correctAns===false){ %>
+                <span class="cross">✖</span>
+            <% } %>
+
+            </button>
+        </form>
+
+    </div>
+
+    <script>
+        // if wrong: alert: Game over! Final best score: -> then show restart button
+        const ans="<%=locals.correctAns%>";
+        if(ans==="false"){
+            alert(`Game over! Final best score: <%=locals.score%>`);
+
+            // restart button:
+            document.querySelector("body").innerHTML='<div class="container"><form action="/" method="get"><button type="submit" class="restartBtn">Restart Quiz</button></form></div>'
+        }
+
+    </script>
+
+</body>
+
+</html>

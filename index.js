@@ -51,13 +51,23 @@ db.query("SELECT * FROM capitals",function(err,res){
 });
 
 //get any random question from quiz
+//ALSO MAKE SURE SAME INDEX RANDOM NO IS NOT GENRRATED AGAIN SO:
+let prevIndex=-1;
 function getQues(){
-    const randomQues=quiz[Math.floor(Math.random()*quiz.length)];
+    let randomIndex;
+    do{
+        randomIndex=Math.floor(Math.random()*quiz.length);
+    }while(prevIndex===randomIndex);
+
+    prevIndex=randomIndex;
+    const randomQues=quiz[randomIndex];
     currentQuestion=randomQues;
 }
 
 app.get('/', (req, res) => {
     totalScore = 0; 
+    prevIndex=-1;
+
     //generate a random question from quiz
     getQues();
     res.render('index.ejs', {
